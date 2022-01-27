@@ -14,7 +14,7 @@ register = Library()
 
 # RemovedInDjango50Warning: shim to allow catching the exception in the calling
 # scope if pytz is not installed.
-class UnknownTimezoneException(BaseException):
+class UnknownTimezoneException(Exception):
     pass
 
 
@@ -29,6 +29,8 @@ def timezone_constructor(tzname):
     try:
         return zoneinfo.ZoneInfo(tzname)
     except zoneinfo.ZoneInfoNotFoundError:
+        # OpenRefactory Warning: The raised 'UnknownTimezoneException' class doesn't inherit the 'Exception' class.
+        # All user-defined exceptions should be derived from 'Exception' class.
         raise UnknownTimezoneException
 
 
