@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 
 class FieldFile(File):
     def __init__(self, instance, field, name):
-        super().__init__(None, name)
+        super().__init__(name, None)
         self.instance = instance
         self.field = field
         self.storage = field.storage
