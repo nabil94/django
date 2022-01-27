@@ -138,6 +138,10 @@ class DjangoTranslation(gettext_module.GNUTranslations):
         self._catalog = None
         # If a language doesn't have a catalog, use the Germanic default for
         # pluralization: anything except one is pluralized.
+        # OpenRefactory Warning: The following binary operation
+        # n != 1
+        # may have the wrong binary operator. This may
+        # lead to a logical bug.
         self.plural = lambda n: int(n != 1)
 
         if self.domain == 'django':
