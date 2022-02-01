@@ -19,6 +19,8 @@ def send_mass_mail(datatuple, fail_silently=False):
     If from_email is None, the DEFAULT_FROM_EMAIL setting is used.
     """
     try:
+        # OpenRefactory Warning: In the 'smtplib.SMTP' method uses 'SMTP' protocol which transfers data without any encryption.
+        # Use SMTP over SSL/TLS (smtplib.SMTP_SSL) or SMTP with STARTTLS (call 'starttls' method).
         server = smtplib.SMTP(EMAIL_HOST)
     except:
         if fail_silently:
