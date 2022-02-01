@@ -55,6 +55,10 @@ class CommonMiddleware:
                 # send a note to the managers.
                 domain = request.META['HTTP_HOST']
                 referer = request.META.get('HTTP_REFERER', None)
+                # OpenRefactory Warning: The following binary operation
+                # domain in referer
+                # may have the wrong binary operator. This may
+                # lead to a logical bug.
                 is_internal = referer and (domain in referer)
                 path = request.get_full_path()
                 if referer and not _is_ignorable_404(path) and (is_internal or '?' not in referer):
