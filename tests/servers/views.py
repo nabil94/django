@@ -45,6 +45,6 @@ def check_model_instance_from_subview(request):
         return HttpResponse('subview calling view: {}'.format(response.read().decode()))
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 def method_view(request):
     return HttpResponse(request.method)
