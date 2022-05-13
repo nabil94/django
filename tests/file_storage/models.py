@@ -5,7 +5,7 @@ Storing files according to a custom storage system
 and where files should be stored.
 """
 
-import random
+import secrets
 import tempfile
 from pathlib import Path
 
@@ -40,7 +40,7 @@ class Storage(models.Model):
     def random_upload_to(self, filename):
         # This returns a different result each time,
         # to make sure it only gets called once.
-        return '%s/%s' % (random.randint(100, 999), filename)
+        return '%s/%s' % (secrets.choice(range(100, 1000)), filename)
 
     def pathlib_upload_to(self, filename):
         return Path('bar') / filename
