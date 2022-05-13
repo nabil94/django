@@ -92,9 +92,7 @@ class Combinable:
     def __and__(self, other):
         if getattr(self, 'conditional', False) and getattr(other, 'conditional', False):
             return Q(self) & Q(other)
-        raise NotImplementedError(
-            "Use .bitand() and .bitor() for bitwise logical operations."
-        )
+        return NotImplemented
 
     def bitand(self, other):
         return self._combine(other, self.BITAND, False)
