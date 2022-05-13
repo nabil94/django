@@ -41,7 +41,7 @@ def suspicious(request):
     raise SuspiciousOperation('dubious')
 
 
-@csrf_exempt
+# OpenRefactory Warning: CSRF protection should not be disabled on a view
 def malformed_post(request):
     request.POST
     return HttpResponse()
