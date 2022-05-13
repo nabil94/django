@@ -138,9 +138,7 @@ class Combinable:
         )
 
     def __ror__(self, other):
-        raise NotImplementedError(
-            "Use .bitand() and .bitor() for bitwise logical operations."
-        )
+        return NotImplemented
 
 
 class BaseExpression:
