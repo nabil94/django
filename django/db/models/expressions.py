@@ -111,9 +111,7 @@ class Combinable:
     def __or__(self, other):
         if getattr(self, 'conditional', False) and getattr(other, 'conditional', False):
             return Q(self) | Q(other)
-        raise NotImplementedError(
-            "Use .bitand() and .bitor() for bitwise logical operations."
-        )
+        return NotImplemented
 
     def bitor(self, other):
         return self._combine(other, self.BITOR, False)
